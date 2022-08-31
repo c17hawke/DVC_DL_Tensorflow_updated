@@ -1,0 +1,13 @@
+dvc
+matplotlib
+pandas
+PyYAML
+tensorflow
+tqdm
+joblib
+scipy
+python-box
+notebook
+ipywidgets
+# local setup installation -
+-e .
