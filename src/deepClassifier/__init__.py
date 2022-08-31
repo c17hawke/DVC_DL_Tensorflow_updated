@@ -14,6 +14,5 @@ logging.basicConfig(
     ])
 
 s = inspect.stack()
-path = os.path.normpath(s[0].filename)
-name = path.split(os.sep)[-2]
+name = os.path.normpath(s[0].filename).split(os.sep)[-2]
 logger = logging.getLogger(name)
