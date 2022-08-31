@@ -9,5 +9,7 @@ scipy
 python-box
 notebook
 ipywidgets
+ensure
+joblib
 # local setup installation -
 -e .
