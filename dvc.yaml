@@ -1,10 +1,11 @@
 stages:
-  load_data:
-    cmd: python src/stage_01_load_save.py --config=config/config.yaml
+  data_ingestion:
+    cmd: python src/deepClassifier/pipeline/stage_01_data_ingestion.py
     deps: 
-      - src/stage_01_load_save.py
-      - src/utils/all_utils.py
-      - config/config.yaml
+      - src/deepClassifier/pipeline/stage_01_data_ingestion.py
+      - src/deepClassifier/components/data_ingestion.py
+      - src/deepClassifier/config/configuration.py
+      - src/deepClassifier/entity/config_entity.py
+      - configs/config.yaml
     outs:
-      - artifacts/data.zip
-      - artifacts/PetImages
+      - artifacts/data_ingestion/data.zip
