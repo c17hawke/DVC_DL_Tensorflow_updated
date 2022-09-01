@@ -2,7 +2,7 @@ from deepClassifier.config import ConfigurationManager
 from deepClassifier.components import PrepareCallbacks, Training
 from deepClassifier import logger
 
-STAGE_NAME = 'Prepare Base Model'
+STAGE_NAME = 'Training'
 
 def main():
     config  =  ConfigurationManager()
