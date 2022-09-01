@@ -1,0 +1,24 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/deepClassifier/pipeline/stage_01_data_ingestion.py
+    deps:
+    - path: configs/config.yaml
+      md5: 0ba2b0fe94d315179db23e44d2f68334
+      size: 302
+    - path: src/deepClassifier/components/data_ingestion.py
+      md5: 4fa5d5044aac5a5ffd945aefa8a9425a
+      size: 2053
+    - path: src/deepClassifier/config/configuration.py
+      md5: 3745c24ab8fa6fe9ed40023b6274b10c
+      size: 1247
+    - path: src/deepClassifier/entity/config_entity.py
+      md5: 255924e7a1db0683b26ef1b099953eee
+      size: 178
+    - path: src/deepClassifier/pipeline/stage_01_data_ingestion.py
+      md5: 00390249506bdeb5257e2cb2549c21b6
+      size: 753
+    outs:
+    - path: artifacts/data_ingestion/data.zip
+      md5: e137a4507370d942469b6d267a24ea04
+      size: 824887076
