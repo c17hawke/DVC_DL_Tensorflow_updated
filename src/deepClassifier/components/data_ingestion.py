@@ -8,10 +8,10 @@ import urllib.request as request
 
 
 class DataIngestion:
-    def __init__(self, config: DataIngestionConfig) -> None:
+    def __init__(self, config: DataIngestionConfig):
         self.config = config
 
-    def download_file(self) -> None:
+    def download_file(self):
         logger.info("Trying to download file...")
         if not os.path.exists(self.config.local_data_file):
             logger.info("Downloading file...")
