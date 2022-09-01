@@ -23,3 +23,15 @@ PrepareCallbacksConfig = namedtuple("PrepareCallbacksConfig",[
     "tensorboard_root_log_dir",
     "checkpoint_model_filepath"
 ])
+
+
+TrainingConfig = namedtuple("TrainingConfig",[
+    "root_dir",
+    "updated_base_model_path",
+    "training_data",
+    "params_epochs",
+    "params_batch_size",
+    "params_is_augmentating",
+    "params_image_size",
+    "trained_model_path"
+])
