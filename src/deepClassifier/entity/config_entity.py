@@ -17,3 +17,9 @@ PrepareBaseModelConfig = namedtuple("PrepareBaseModelConfig",[
     "param_include_top",
     "param_weights"
 ])
+
+PrepareCallbacksConfig = namedtuple("PrepareCallbacksConfig",[
+    "root_dir",
+    "tensorboard_root_log_dir",
+    "checkpoint_model_filepath"
+])
