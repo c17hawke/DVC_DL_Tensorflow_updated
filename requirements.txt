@@ -6,10 +6,10 @@ tensorflow
 tqdm
 joblib
 scipy
-python-box
+python-box==6.0.2
 notebook
 ipywidgets
-ensure
+ensure==1.0.2
 joblib
 # local setup installation -
 -e .
