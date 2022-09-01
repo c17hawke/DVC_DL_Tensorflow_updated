@@ -4,17 +4,17 @@ stages:
     cmd: python src/deepClassifier/pipeline/stage_01_data_ingestion.py
     deps:
     - path: configs/config.yaml
-      md5: 0ba2b0fe94d315179db23e44d2f68334
-      size: 302
+      md5: f06ba62fbc13fa836e24ee3176c13f0f
+      size: 513
     - path: src/deepClassifier/components/data_ingestion.py
-      md5: 4fa5d5044aac5a5ffd945aefa8a9425a
-      size: 2053
+      md5: 69f95b14d811619c0ac4732a39ece135
+      size: 1971
     - path: src/deepClassifier/config/configuration.py
-      md5: 3745c24ab8fa6fe9ed40023b6274b10c
-      size: 1247
+      md5: f5b933dff0d0e5bf4cdc29a1843ba119
+      size: 2164
     - path: src/deepClassifier/entity/config_entity.py
-      md5: 255924e7a1db0683b26ef1b099953eee
-      size: 178
+      md5: 0cf85c4674decf76b1056ffda02428e4
+      size: 445
     - path: src/deepClassifier/pipeline/stage_01_data_ingestion.py
       md5: 00390249506bdeb5257e2cb2549c21b6
       size: 753
@@ -22,3 +22,36 @@ stages:
     - path: artifacts/data_ingestion/data.zip
       md5: e137a4507370d942469b6d267a24ea04
       size: 824887076
+  prepare_base_model:
+    cmd: python src/deepClassifier/pipeline/stage_02_prepare_base_model.py
+    deps:
+    - path: configs/config.yaml
+      md5: f06ba62fbc13fa836e24ee3176c13f0f
+      size: 513
+    - path: src/deepClassifier/components/prepare_base_model.py
+      md5: a973551f4ea1524b5cbb23f25f72f122
+      size: 3151
+    - path: src/deepClassifier/config/configuration.py
+      md5: f5b933dff0d0e5bf4cdc29a1843ba119
+      size: 2164
+    - path: src/deepClassifier/entity/config_entity.py
+      md5: 0cf85c4674decf76b1056ffda02428e4
+      size: 445
+    - path: src/deepClassifier/pipeline/stage_02_prepare_base_model.py
+      md5: f3191f9797e282a317d3c14a76ddca25
+      size: 742
+    params:
+      params.yaml:
+        CLASSES: 2
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+        INCLUDE_TOP: false
+        LEARNING_RATE: 0.001
+        WEIGHTS: imagenet
+    outs:
+    - path: artifacts/prepare_base_model
+      md5: 8fc54fe525ee11bfc9433d1bd428385f.dir
+      size: 118053368
+      nfiles: 2
