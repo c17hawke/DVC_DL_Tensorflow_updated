@@ -1,8 +1,8 @@
 from deepClassifier.constants import *
-from deepClassifier.entity import DataIngestionConfig, PrepareBaseModelConfig
+from deepClassifier.entity import DataIngestionConfig, PrepareBaseModelConfig, PrepareCallbacksConfig
 from deepClassifier.utils import read_yaml, create_directories
 from deepClassifier import logger
-
+import os
 
 class ConfigurationManager:
     def __init__(
@@ -50,3 +50,18 @@ class ConfigurationManager:
             param_weights=self.params.WEIGHTS
         )
         return prepare_base_model_config
+
+    def get_callbacks_config(self) -> PrepareCallbacksConfig:
+        logger.info("getting configuration for callbacks")
+
+        prepare_callbacks = self.config.prepare_callbacks
+        create_directories([
+            Path(prepare_callbacks.tensorboard_root_log_dir),
+            Path(os.path.dirname(prepare_callbacks.checkpoint_model_filepath))
+        ])
+        callbacks_config = PrepareCallbacksConfig(
+            root_dir=Path(prepare_callbacks.root_dir),
+            tensorboard_root_log_dir=Path(prepare_callbacks.tensorboard_root_log_dir),
+            checkpoint_model_filepath=Path(prepare_callbacks.checkpoint_model_filepath)
+        )
+        return callbacks_config
