@@ -10,7 +10,6 @@ from pathlib import Path
 class PrepareBaseModel:
     def __init__(self, config: PrepareBaseModelConfig):
         self.config = config
-        create_directories([self.config.root_dir])
 
     @staticmethod
     def save_model(path: Path, model: tf.keras.Model):
