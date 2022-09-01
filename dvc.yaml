@@ -26,3 +26,24 @@ stages:
       - LEARNING_RATE
     outs:
       - artifacts/prepare_base_model
+
+  training:
+    cmd: python src/deepClassifier/pipeline/stage_03_training.py
+    deps: 
+      - src/deepClassifier/pipeline/stage_03_training.py
+      - src/deepClassifier/config/configuration.py
+      - src/deepClassifier/entity/config_entity.py
+      - src/deepClassifier/components/training.py
+      - src/deepClassifier/components/prepare_callbacks.py
+      - configs/config.yaml
+      - artifacts/prepare_base_model
+      - artifacts/data_ingestion/data.zip
+    params:
+      - AUGMENTATION
+      - IMAGE_SIZE
+      - BATCH_SIZE
+      - EPOCHS
+    outs:
+      - artifacts/training/model.h5
+      - artifacts/prepare_callbacks/checkpoint_dir/model.h5
+      - artifacts/prepare_callbacks/tensorboard_log_dir
