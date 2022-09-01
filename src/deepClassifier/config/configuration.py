@@ -2,7 +2,6 @@ from deepClassifier.constants import *
 from deepClassifier.entity import DataIngestionConfig
 from deepClassifier.utils import read_yaml, create_directories
 from deepClassifier import logger
-import os
 
 
 class ConfigurationManager:
@@ -14,16 +13,16 @@ class ConfigurationManager:
         self.config = read_yaml(path_to_yaml=config_filepath)
         self.params = read_yaml(path_to_yaml=params_filepath)
         self.secrets = read_yaml(path_to_yaml=secrets_filepath)
-        self._create_artifact_root()
-
-    def _create_artifact_root(self):
         create_directories([self.config.artifacts_root])
+
 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         logger.info("getting configuration for data ingestion")
 
         data_ingestion = self.config.data_ingestion
-
+        create_directories([
+            Path(data_ingestion.root_dir)
+        ])
         data_ingestion_config = DataIngestionConfig(
             root_dir=Path(data_ingestion.root_dir),
             source_URL=data_ingestion.source_URL,
