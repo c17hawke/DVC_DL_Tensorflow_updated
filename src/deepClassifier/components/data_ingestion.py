@@ -31,7 +31,6 @@ class DataIngestion:
     
     def _proccessing(self, zf: ZipFile, f: str, working_dir: str):
         target_filepath = os.path.join(working_dir, f)
-        # create_directories([os.path.dirname(target_filepath)])
         if not os.path.exists(target_filepath):
             zf.extract(f, working_dir)
 
