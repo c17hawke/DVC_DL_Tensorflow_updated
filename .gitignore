@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 configs/secrets.yaml
 artifacts/data_ingestion/PetImages/
+research/artifacts/*
